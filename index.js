@@ -13,9 +13,11 @@ import { Admin } from './models/Admin.js'
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: ['https://frontend-bookstore-react.onrender.com'],
+    origin: ["https://frontend-bookstore-react.onrender.com", "http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
-}))
+}));
+
 app.use(cookieParser())
 dotenv.config()
 app.use('/auth', AdminRouter)
